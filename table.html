@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table ui</title>
+    <link rel="stylesheet" href="table.css">
+    <script src="https://kit.fontawesome.com/13904d7ac7.js" crossorigin="anonymous"></script>
+    <script src="table.js"></script>
+   
+</head>
+<body>
+    <div class="container">
+        <select class="dropdown" id="req_per_page" onchange="pagination(employee)">
+            <option selected>10</option>
+            <option>25</option>
+            <option>50</option>
+            <option>100</option>
+        </select>
+        <div class="search">
+        <input type="search" name="search" id="search" onkeyup="searchData(event)" placeholder="search">
+        <button class="open-button" onclick="openForm()">Add Employee</button>
+    </div>
+        <div class="form-popup" id="myForm">
+            <form class="form-container" id="form" onsubmit="addData(event)">
+                <button onclick="closeForm()" class="cancelbutton" type="button">X</button>
+            <h1 id="title">Add Employee</h1>
+
+            <label for="email"><b>Employee Name</b></label>
+            <input type="text" placeholder="Enter employee name" name="name" id="name" required>
+        
+            <label for="psw"><b>Postion</b></label>
+            <input type="text" placeholder="Enter Postion" name="position" id="position" required>
+
+            <label for="psw"><b>Office</b></label>
+            <input type="text" placeholder="Enter office city" name="office" id="office" required>
+            
+            <label for="psw"><b>Age</b></label>
+            <input type="number" placeholder="Enter your age" name="age" id="age" required>
+
+            <label for="psw"><b>Start Date</b></label>
+            <input type="date" placeholder="Enter start date" name="startdate" id="startdate" required>
+
+            <label for="psw"><b>Salary</b></label>
+            <input type="number" placeholder="Enter Your Salary" name="salary" id="salary" required>
+
+            <div id="submit"></div>
+            
+
+            
+
+
+        </form>
+        </div>
+        <table id="myTable">
+            <thead class="first">
+                <tr>
+                <th onclick="sortData('name')">Name</th>
+                <th onclick="sortData('position')">Position</th>
+                <th onclick="sortData('office')">Office</th>
+                <th onclick="sortData('age')">Age</th>
+                <th onclick="sortData('startdate')">Start Date</th>
+                <th onclick="sortData('salary')">Salary</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="tabledata">
+               
+            </tbody>
+            <thead class="last">
+                <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start Date</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+        </table>
+        
+        <div class="footer">
+        <span class="count"><h4 id="count"></h4></span>
+        <span class="button4">
+            <div class="button">
+
+            <button class="pagination" onclick="getPreviousPage()" id="prevoius">pervious</button>
+            <span class="button3"></span>
+            <button class="pagination" onclick="getNextPage()" id="next">next</button>
+        
+            </div>
+         </span>
+</div>
+        
+        
+    </div>
+
+    
+</body>
+</html>
